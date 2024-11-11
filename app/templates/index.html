@@ -9,12 +9,26 @@
 </head>
 <body>
     <h1>Air Quality Data for {{ city_name }}</h1>
+
+    <!-- Search Form -->
+
+    <form method="POST" action="/">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Air Quality Data -->
+
     <div id="data">
-        {% for entry in data %}
-            <p>Measurement: {{ entry['components']['pm2_5'] }} μg/m³</p>
-            <p>CO Level: {{ entry['components']['co'] }} μg/m³</p>
-            <p>NO Level: {{ entry['components']['no'] }} μg/m³</p>
-        {% endfor %}
+        {% if data %}
+            {% for entry in data %}
+                <p>Measurement: {{ entry['components']['pm2_5'] }} μg/m³</p>
+                <p>CO Level: {{ entry['components']['co'] }} μg/m³</p>
+                <p>NO Level: {{ entry['components']['no'] }} μg/m³</p>
+            {% endfor %}
+        {% else %}
+            <p>No air quality data available for {{ city_name }}.</p>
+        {% endif %}
     </div>
 </body>
 </html>

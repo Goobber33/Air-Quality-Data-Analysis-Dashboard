@@ -13,7 +13,7 @@ def fetch_air_quality_data(lat, lon, city_name=""):
         f"{BASE_URL}?lat={lat}&lon={lon}&appid={API_KEY}"
     )
     data = response.json()
-    print(data)  # Print the response to inspect its structure
+    print(data)
 
     # Check if 'list' key is present in the response
 
@@ -21,7 +21,7 @@ def fetch_air_quality_data(lat, lon, city_name=""):
         raise KeyError("'list' key not found in the API response. Response:", data)
 
     # Convert to DataFrame if 'list' is present
-    
+
     df = pd.DataFrame(data['list'])
-    return df, city_name  # Return both data and city name
+    return df, city_name
 
