@@ -5,10 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    data = fetch_air_quality_data(45.5234, -122.6762)  # Latitude and longitude for Portland, OR
+    city_name = "Portland"
+    data, city_name = fetch_air_quality_data(45.5234, -122.6762, city_name)
     if data is not None:
         data = data.to_dict(orient='records')  # Convert DataFrame to a list of dictionaries
-    return render_template('index.html', data=data)
+    return render_template('index.html', data=data, city_name=city_name)
 
 if __name__ == '__main__':
     app.run(debug=True)
