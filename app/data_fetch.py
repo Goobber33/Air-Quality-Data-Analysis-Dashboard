@@ -13,6 +13,8 @@ def fetch_air_quality_data(city, country):
         f"{BASE_URL}?q={city},{country}&appid={API_KEY}"
     )
     data = response.json()
+
     # Convert to DataFrame for processing
+    
     df = pd.DataFrame(data['list'])
     return df
