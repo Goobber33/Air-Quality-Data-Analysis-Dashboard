@@ -22,13 +22,23 @@
     <div id="data">
         {% if data %}
             {% for entry in data %}
-                <p>Measurement: {{ entry['components']['pm2_5'] }} μg/m³</p>
+                <p>PM2.5 Level: {{ entry['components']['pm2_5'] }} μg/m³</p>
                 <p>CO Level: {{ entry['components']['co'] }} μg/m³</p>
                 <p>NO Level: {{ entry['components']['no'] }} μg/m³</p>
             {% endfor %}
         {% else %}
             <p>No air quality data available for {{ city_name }}.</p>
         {% endif %}
+    </div>
+
+    <!-- FAQ/Information Box -->
+     
+    <div id="info-box">
+        <h2>Air Quality Measurements Explained</h2>
+        <p><strong>PM2.5 Level:</strong> PM2.5 refers to particulate matter with a diameter of 2.5 micrometers or smaller. These tiny particles can penetrate deep into the lungs and even enter the bloodstream, posing health risks. Levels above 35 μg/m³ are considered potentially hazardous, especially for sensitive groups.</p>
+        <p><strong>CO (Carbon Monoxide) Level:</strong> Carbon monoxide is a colorless, odorless gas produced by burning fossil fuels. Elevated CO levels can impair oxygen delivery in the body and may be harmful, particularly in enclosed spaces. Safe outdoor levels are typically below 9 ppm over an 8-hour period.</p>
+        <p><strong>NO (Nitric Oxide) Level:</strong> Nitric oxide is a pollutant commonly produced from vehicle emissions and industrial processes. High levels can contribute to respiratory problems and react with other chemicals to form smog and acid rain.</p>
+        <p><strong>Understanding the Air Quality Index (AQI):</strong> AQI is a standardized measurement that ranges from 0-500, categorizing air quality from "Good" to "Hazardous". Values under 50 indicate good air quality, while values above 300 signal a health emergency.</p>
     </div>
 </body>
 </html>
